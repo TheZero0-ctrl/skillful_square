@@ -6,6 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.2.1'
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
+gem 'devise', '~> 4.9'
 gem 'jbuilder'
 gem 'jsbundling-rails'
 gem 'pg', '~> 1.1'
@@ -22,7 +23,6 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'faker', '~> 1.6', '>= 1.6.6'
   gem 'pry'
-  gem 'rspec-rails', '~> 6.0.0'
   gem 'rubocop', '~> 1.50', '>= 1.50.2', require: false
   gem 'rubocop-performance', '~> 1.17', '>= 1.17.1', require: false
   gem 'rubocop-rails', '~> 2.19', '>= 2.19.1', require: false
@@ -34,5 +34,7 @@ group :development do
 end
 
 group :test do
+  gem 'factory_bot', '~> 6.2'
+  gem 'rspec-rails', '~> 6.0.0'
   gem 'shoulda-matchers', '~> 5.0'
 end
