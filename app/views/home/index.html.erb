@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <nav class="bg-gray-800 py-4">
   <div class="container mx-auto px-4 flex justify-between items-center">
-    <a href="#" class="text-lg font-semibold text-primary-color">
+    <a href=<%= root_path %> class="text-lg font-semibold text-primary-color">
       <span class="sr-only">SkillfulSquare</span>
       <%= image_tag "logo.png", class: "h-10 w-auto"%>
     </a>
@@ -11,7 +11,7 @@
       <a href="#" class="text-gray-300 hover:text-white">Pricing</a>
     </div>
     <div class="flex justify-end">
-      <a href="#" class="text-gray-300 hover:text-white">Sign In</a>
+      <%= link_to "Log in", new_user_session_path, class: "text-gray-300 hover:text-white"%>
     </div>
   </div>
 </nav>
@@ -20,7 +20,7 @@
   <div class="container mx-auto px-4">
     <h1 class="text-5xl font-bold max-w-3xl mb-8 text-primary-color">Discover and Monetize Your Skills</h1>
     <p class="text-xl max-w-2xl mb-8">Skillful Square is the platform where you can buy and sell digital goods, showcasing your talents to a global audience.</p>
-    <a href="#" class="bg-primary-color hover:bg-secondary-color text-white py-3 px-6 rounded-full text-lg font-semibold">Get Started</a>
+    <%= link_to "Get Started", new_user_registration_path,class:"bg-primary-color hover:bg-secondary-color text-white py-3 px-6 rounded-full text-lg font-semibold"%>
   </div>
 </header>
 <!-- Features Section -->

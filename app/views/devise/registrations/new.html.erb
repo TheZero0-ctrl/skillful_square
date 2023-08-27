@@ -1,0 +1,31 @@
+<div class="w-full h-screen flex flex-col items-center justify-center sm:px-4">
+  <a href=<%= root_path %> class="text-lg font-semibold text-primary-color mb-4">
+    <span class="sr-only">SkillfulSquare</span>
+    <%= image_tag "logo.png", class: "h-10 w-auto"%>
+  </a>
+  <div class="form-container w-1/4">
+    <p class="title">Register a new account</p>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form" }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="input-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+      <div class="input-group">
+        <%= f.label :password %>
+        <%# if @minimum_password_length %>
+<!--          <em>(<%#= @minimum_password_length %> characters minimum)</em>-->
+        <%# end %><!--<br />-->
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+      <div class="input-group mb-4">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+      <%= f.submit "Sign up", class:"sign cursor-pointer" %>
+    <% end %>
+    <p class="signup mt-10">Already have an account?
+      <%= link_to "Log in", new_user_session_path %>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="w-full h-screen flex flex-col items-center justify-center sm:px-4">
+  <a href=<%= root_path %> class="text-lg font-semibold text-primary-color mb-4">
+    <span class="sr-only">SkillfulSquare</span>
+    <%= image_tag "logo.png", class: "h-10 w-auto"%>
+  </a>
+  <div class="form-container w-1/4">
+    <p class="title">Login</p>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form" }) do |f| %>
+      <div class="input-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+      <div class="input-group">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+      <div class="flex justify-between items-center mt-2 mb-2">
+        <div class="remember flex items-center gap-2">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+        <div class="forgot">
+          <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+        </div>
+      </div>
+      <%= f.submit "Log in", class:"sign cursor-pointer" %>
+    <% end %>
+    <p class="signup mt-10">Don't have an account?
+      <%= link_to "Sign up", new_user_registration_path %>
+    </p>
+  </div>
+</div>
