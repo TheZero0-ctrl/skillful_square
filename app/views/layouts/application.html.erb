@@ -12,6 +12,15 @@
   </head>
 
   <body class="text-white bg-gray-700">
-    <%= yield %>
+    <% if current_user %>
+      <div class="flex h-screen lg:gap-4" data-controller="navbar">
+        <%= render "layouts/sidenav" %>
+        <main data-navbar-target="content" class="w-full flex-1 ml-[16.5rem]">
+          <%= yield %>
+        </main>
+      </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>

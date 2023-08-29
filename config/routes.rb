@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'dashboard', to: 'dashboard#index'
+
+  resources :products, only: %i[index new create edit]
 end

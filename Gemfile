@@ -7,6 +7,7 @@ ruby '3.2.1'
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'devise', '~> 4.9'
+gem 'friendly_id', '~> 5.4.0'
 gem 'jbuilder'
 gem 'jsbundling-rails'
 gem 'money-rails', '~> 1.12'
@@ -22,7 +23,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'faker', '~> 1.6', '>= 1.6.6'
+  gem 'factory_bot_rails', '~> 6.2'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
   gem 'pry'
   gem 'rubocop', '~> 1.50', '>= 1.50.2', require: false
   gem 'rubocop-performance', '~> 1.17', '>= 1.17.1', require: false
@@ -35,7 +37,6 @@ group :development do
 end
 
 group :test do
-  gem 'factory_bot_rails', '~> 6.2'
   gem 'rspec-rails', '~> 6.0.0'
   gem 'shoulda-matchers', '~> 5.0'
 end

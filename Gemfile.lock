@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 552b91d15a26b1fb401a1b4d273ed424d7697725
+  branch: main
+  specs:
+    faker (3.2.1)
+      i18n (>= 1.8.11, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -95,9 +103,9 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
-    faker (1.9.6)
-      i18n (>= 0.7)
     ffi (1.15.5)
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.14.1)
@@ -296,7 +304,8 @@ DEPENDENCIES
   debug
   devise (~> 4.9)
   factory_bot_rails (~> 6.2)
-  faker (~> 1.6, >= 1.6.6)
+  faker!
+  friendly_id (~> 5.4.0)
   jbuilder
   jsbundling-rails
   money-rails (~> 1.12)
