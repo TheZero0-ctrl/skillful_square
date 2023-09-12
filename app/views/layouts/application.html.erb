@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= favicon_link_tag asset_path('favicon.png') %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-
   <body class="text-white bg-gray-700">
     <% if current_user %>
       <div class="flex h-screen lg:gap-4" data-controller="navbar">
@@ -22,5 +20,8 @@
     <% else %>
       <%= yield %>
     <% end %>
+    <div id="flash" class="flash">
+      <%= render 'layouts/flash'%>
+    </div>
   </body>
 </html>

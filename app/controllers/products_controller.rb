@@ -3,6 +3,7 @@
 
 class ProductsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_product, only: %i[edit update]
 
   def index; end
 
@@ -16,10 +17,16 @@ class ProductsController < ApplicationController
     @product = current_user.products.build(product_params)
 
     if @product.save
+      flash[:success] = true
+      flash[:data] = 'Product created successfully'
       redirect_to edit_product_path(@product)
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def update
+    @product.update!(product_params)
   end
 
   private
@@ -27,6 +34,10 @@ class ProductsController < ApplicationController
   def product_params
     params[:product].delete(:price) if params[:product][:price].to_f.zero?
     params.require(:product).permit(:name, :price)
+  end
+
+  def set_product
+    @product = Product.friendly.find(params[:id])
   end
 end
 

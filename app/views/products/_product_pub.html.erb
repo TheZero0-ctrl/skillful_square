@@ -1,0 +1,6 @@
+<%= link_to product_publish_path(product), data: { "turbo-method": :patch }, class: "group relative inline-block text-sm font-medium text-gray-700 focus:outline-none focus:ring", id: 'product-pub' do%>
+  <span class="absolute inset-0 border border-secondary-color group-active:border-orange-400"></span>
+  <span class="block border border-secondary-color bg-secondary-color px-12 py-3 transition-transform active:border-orange-400 active:bg-orange-400 group-hover:-translate-x-1 group-hover:-translate-y-1">
+    Publish
+  </span>
+<% end %>

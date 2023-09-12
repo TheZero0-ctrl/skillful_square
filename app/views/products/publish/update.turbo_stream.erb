@@ -1,0 +1,2 @@
+<%= turbo_stream.replace('product-pub', partial: 'products/product_unpub', locals: { product: @product })%>
+<%= turbo_stream.prepend "flash", partial: "layouts/flash" %>
