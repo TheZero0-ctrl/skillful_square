@@ -21,6 +21,14 @@ RSpec.describe 'Product', type: :request do
     end
   end
 
+  describe 'GET edit' do
+    it 'returns http success' do
+      product = create(:product)
+      get edit_product_path(product)
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe 'POST create' do
     context 'with valid params with price as string' do
       it 'creates a new product' do
@@ -50,6 +58,19 @@ RSpec.describe 'Product', type: :request do
         expect(response).to have_http_status(:redirect)
         expect(Product.last.price.to_s).to eq('100.00')
       end
+    end
+  end
+
+  describe 'PUT update' do
+    it 'update the products' do
+      product = create(:product)
+      expect do
+        put product_path(product), params: {
+          product: {
+            name: 'updated name'
+          }
+        }
+      end.to change { product.reload.name }.to('updated name')
     end
   end
 end
