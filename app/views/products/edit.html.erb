@@ -1,43 +1,57 @@
-<header class="sticky top-0 inset-x-0 flex flex-wrap sm:justify-start sm:flex-nowrap z-30 w-ful border-b border-gray-400 text-sm py-3 sm:py-0 bg-gray-700">
-  <nav class="relative max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8" aria-label="Global">
-    <div class="w-full text-4xl text-accent-color tracking-wider">
-      <%= @product.name %>
-    </div>
-    <div id="navbar-collapse-with-animation" class="hs-collapse overflow-hidden transition-all duration-300 basis-full grow">
-      <div class="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:pl-7 p-5">
-        <% if @product.published? %>
-          <%= render 'product_unpub', product: @product%>
-        <% else %>
-          <%= render 'product_pub', product: @product%>
-        <% end %>
-        <%= link_to product_publish_path(@product), data: { "turbo-method": :patch }, class: "group relative inline-block text-sm font-medium text-gray-500 focus:outline-none focus:ring active:text-orange-400" do%>
-          <span class="absolute inset-0 border border-current"></span>
-          <span class="block border border-current bg-white px-12 py-3 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1">
-            Save Change
-          </span>
-        <% end %>
+<div>
+  <%= form_with  model: @product do |f|%>
+    <section class="sticky top-0 inset-x-0 flex flex-wrap sm:justify-start sm:flex-nowrap z-30 w-ful border-b border-gray-400 text-sm py-0 lg:py-8 bg-gray-700">
+      <div class="relative max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8" aria-label="Global">
+        <div class="w-full text-4xl text-accent-color tracking-wider">
+          <%= @product.name %>
+        </div>
+        <div id="navbar-collapse-with-animation" class="hs-collapse overflow-hidden transition-all duration-300 basis-full grow">
+          <div class="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:pl-7 p-5">
+            <% if @product.published? %>
+              <%= render 'product_unpub', product: @product%>
+            <% else %>
+              <%= render 'product_pub', product: @product%>
+            <% end %>
+            <button type="submit" class="group relative inline-block text-sm font-medium text-gray-500 focus:outline-none focus:ring active:text-orange-400 cursor-pointer">
+              <span class="absolute inset-0 border border-current"></span>
+              <span class="block border border-current bg-white px-12 py-3 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1">
+                Save Change
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-  </nav>
-</header>
-<main id="content" role="main" class="p-4">
-  <div class="mb-10">Hello</div>
-  <div class="mb-10">Hello</div>
-  <div class="mb-10">Hello</div>
-  <div class="mb-10">Hello</div>
-  <div class="mb-10">Hello</div>
-  <div class="mb-10">Hello</div>
-  <div class="mb-10">Hello</div>
-  <div class="mb-10">Hello</div>
-  <div class="mb-10">Hello</div>
-  <div class="mb-10">Hello</div>
-  <div class="mb-10">Hello</div>
-  <div class="mb-10">Hello</div>
-  <div class="mb-10">Hello</div>
-  <div class="mb-10">Hello</div>
-  <div class="mb-10">Hello</div>
-  <div class="mb-10">Hello</div>
-  <div class="mb-10">Hello</div>
-  <div class="mb-10">Hello</div>
-</main>
-</html>
+    </section>
+    <section id="content" role="main" class="p-4 m-0 lg:ml-10">
+      <div class="space-y-12">
+        <div class="pb-12">
+          <h2 class="text-base font-semibold leading-7">Product Information</h2>
+          <p class="mt-1 text-sm leading-6 text-gray-300">Update your product Information</p>
+          <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div class="sm:col-span-3">
+              <%= f.label :name, class: "block text-sm font-medium leading-6"%>
+              <div class="mt-2">
+                <%= f.text_field :name, class: "block w-full rounded-md border-0 p-2 bg-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"%>
+              </div>
+            </div>
+            <div class="sm:col-span-4">
+              <%= f.label :slug, "URL", class: "block text-sm font-medium leading-6"%>
+              <div class="mt-2">
+                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <span class="flex select-none items-center pl-3 pr-2 text-gray-500 sm:text-sm">https://skillfulsquare.com/products/</span>
+                  <%= f.text_field :slug, class:"block w-full rounded-md border-0 p-2 bg-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"%>
+                </div>
+              </div>
+            </div>
+            <div class="sm:col-span-3">
+              <%= f.label :name, class: "block text-sm font-medium leading-6"%>
+              <div class="mt-2">
+                <%= f.text_field :name, class: "block w-full rounded-md border-0 p-2 bg-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <% end %>
+</div>

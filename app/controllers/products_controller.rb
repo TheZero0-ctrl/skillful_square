@@ -26,14 +26,19 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product.update!(product_params)
+    if @product.update(product_params)
+      flash[:sucess] = 'Product updated successfully'
+      redirect_to edit_product_path(@product)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
 
   def product_params
     params[:product].delete(:price) if params[:product][:price].to_f.zero?
-    params.require(:product).permit(:name, :price)
+    params.require(:product).permit(:name, :price, :slug)
   end
 
   def set_product

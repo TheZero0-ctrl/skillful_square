@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'dashboard#index'
 
-  resources :products, only: %i[index new create edit]
+  resources :products, only: %i[index new create edit update]
 
   scope module: :products, path: :products, as: :product do
     resources :publish, only: %i[update]
