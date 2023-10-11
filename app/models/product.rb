@@ -10,6 +10,7 @@ class Product < ApplicationRecord
 
   # associations
   belongs_to :user
+  has_rich_text :description
 
   # validations
   validates :name, presence: true, uniqueness: { scope: :user_id, case_sensitive: false  }
