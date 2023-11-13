@@ -2,6 +2,9 @@
   <%= form_with  model: @product do |f|%>
     <%= render 'products/sticky_header', product: @product %>
     <section id="content" role="main" class="p-4 m-0 lg:ml-10">
+      <div>
+        <%= render UploadedFileComponent.new(name: "new product", description: "thi is a description", file_type: "zip", file_size: "200") %>
+      </div>
       <div class="pb-12">
         <h2 class="text-base font-semibold leading-7">Content Delivery</h2>
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-5">

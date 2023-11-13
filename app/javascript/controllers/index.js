@@ -12,3 +12,6 @@ application.register("navbar", NavbarController)
 
 import NotificationController from "./notification_controller"
 application.register("notification", NotificationController)
+
+import UploadedFileController from "./uploaded_file_controller"
+application.register("uploaded-file", UploadedFileController)

@@ -35,6 +35,7 @@ end
 
 group :development do
   gem 'web-console'
+  gem 'trace_location'
 end
 
 group :test do

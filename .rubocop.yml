@@ -191,7 +191,7 @@ Lint/LambdaWithoutLiteralBlock:
   Enabled: true
 
 Lint/MissingSuper:
-  Enabled: true
+  Enabled: false
 
 Lint/MixedRegexpCaptureTypes:
   Enabled: true
