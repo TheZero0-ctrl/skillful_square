@@ -17,4 +17,8 @@ Rails.application.routes.draw do
     resources :publish, only: %i[update]
     resources :unpublish, only: %i[update]
   end
+
+  namespace :api do
+    resources :contents, only: :create
+  end
 end
