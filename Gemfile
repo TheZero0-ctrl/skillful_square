@@ -34,8 +34,12 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bcrypt_pbkdf', '~> 1.1', require: false
+  gem 'capistrano', '~> 3.18', require: false
+  gem 'capistrano-rails', '~> 1.6', '>= 1.6.3', require: false
+  gem 'capistrano-rbenv', '~> 2.2', require: false
+  gem 'ed25519', '~> 1.3', require: false
   gem 'web-console'
-  gem 'trace_location'
 end
 
 group :test do
