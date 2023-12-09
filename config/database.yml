@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: skillful_square_production
-  username: skillful_square
+  username: deploy
   password: <%= ENV["SKILLFUL_SQUARE_DATABASE_PASSWORD"] %>
