@@ -13,7 +13,7 @@
               </svg>
               <div>
                 <p><%= @name %></p>
-                <p class="font-extralight text-sm"><%= @file_type %> <%= @file_size %></p>
+                <p class="font-extralight text-sm"><%= @file_type.match(/\/(.+)/)[1] %> &middot; <%= number_to_human_size(@file_size) %></p>
               </div>
             </div>
             <div class="ps-3 text-gray-700 flex items-center gap-4">

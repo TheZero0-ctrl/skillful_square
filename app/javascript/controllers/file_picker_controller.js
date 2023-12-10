@@ -10,7 +10,11 @@ export default class extends Controller {
   uploadFiles(e) {
     axios.post(
       '/api/contents',
-      { name: e.target.files[0].name },
+      {
+        name: e.target.files[0].name,
+        file_type: e.target.files[0].type,
+        file_size: e.target.files[0].size,
+      },
       {headers: {
         'ACCEPT': 'text/vnd.turbo-stream.html',
       }}

@@ -3,7 +3,14 @@
     <%= render 'products/sticky_header', product: @product %>
     <section id="content" role="main" class="p-4 m-0 lg:ml-10">
       <div id='uploaded-files'>
-        <%= render UploadedFileComponent.new(name: "new product", description: "thi is a description", file_type: "zip", file_size: "200") %>
+        <% @contents.each do |content| %>
+          <%= render UploadedFileComponent.new(
+            name: content.name,
+            description: content.description,
+            file_type: content.file_type,
+            file_size: content.file_size
+          ) %>
+        <% end %>
       </div>
       <div class="pb-12">
         <h2 class="text-base font-semibold leading-7">Content Delivery</h2>
@@ -12,7 +19,10 @@
             data-file-picker-target='button'
             class="sm:col-span-3"
           >
-            <label for="af-submit-app-upload-images" class="group p-4 sm:p-7 block cursor-pointer text-center border-2 border-dashed border-gray-200 rounded-lg focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2">
+            <label 
+              for="af-submit-app-upload-images"
+              class="group p-4 sm:p-7 block cursor-pointer text-center border-2 border-dashed border-gray-200 rounded-lg focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2"
+              >
               <input 
                 id="af-submit-app-upload-images"
                 name="af-submit-app-upload-images"
