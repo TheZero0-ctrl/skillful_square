@@ -7,6 +7,7 @@ module Api
 
     def create
       @content = Content.create!(content_params)
+      @content.file.attach(params[:signed_blob_id])
       respond_to do |format|
         format.turbo_stream
       end

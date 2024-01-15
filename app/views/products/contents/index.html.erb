@@ -1,10 +1,11 @@
 <div>
-  <%= form_with  model: @product, data: {controller: 'file-picker'} do |f|%>
+  <%= form_with  model: @product do |f|%>
     <%= render 'products/sticky_header', product: @product %>
     <section id="content" role="main" class="p-4 m-0 lg:ml-10">
       <div id='uploaded-files'>
         <% @contents.each do |content| %>
           <%= render UploadedFileComponent.new(
+            content_id: content.id,
             name: content.name,
             description: content.description,
             file_type: content.file_type,
@@ -16,20 +17,22 @@
         <h2 class="text-base font-semibold leading-7">Content Delivery</h2>
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-5">
           <div 
-            data-file-picker-target='button'
+            data-controller="file-picker"
+            data-action="click->file-picker#trigger drop->file-picker#acceptFiles"
+            id='uploadzone'
             class="sm:col-span-3"
+            data-file-picker-uploaded-file-outlet=".uploaded-file"
           >
             <label 
               for="af-submit-app-upload-images"
               class="group p-4 sm:p-7 block cursor-pointer text-center border-2 border-dashed border-gray-200 rounded-lg focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2"
               >
               <input 
-                id="af-submit-app-upload-images"
-                name="af-submit-app-upload-images"
                 type="file"
-                class="sr-only"
+                class="hidden"
                 multiple
-                data-action="change->file-picker#uploadFiles"
+                data-file-picker-target="fileInput"
+                data-action="change->file-picker#acceptFiles"
               >
               <svg class="w-10 h-10 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2z"/>
@@ -38,9 +41,6 @@
               <span class="mt-2 block text-sm text-gray-300">
                 Upload you file
               </span>
-              <%# <span class="mt-1 block text-xs text-gray-300"> %>
-              <%#   Maximum file size is 2 MB %>
-              <%# </span> %>
             </label>
           </div>
         </div>

@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.1'
+gem 'aws-sdk-s3', require: false
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'devise', '~> 4.9'
@@ -25,7 +26,7 @@ gem 'view_component', '~> 2.49', '>= 2.49.1'
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails', '~> 6.2'
-  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'main'
   gem 'pry'
   gem 'rubocop', '~> 1.50', '>= 1.50.2', require: false
   gem 'rubocop-performance', '~> 1.17', '>= 1.17.1', require: false
